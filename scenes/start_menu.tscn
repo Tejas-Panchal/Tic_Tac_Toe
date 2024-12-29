@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6iyea0x1ku6h"]
+
+[ext_resource type="Script" path="res://scripts/start_menu.gd" id="1_c0xwn"]
+[ext_resource type="Texture2D" uid="uid://dwpcjjpq0l1p" path="res://assets/start_button.png" id="1_ry1of"]
+[ext_resource type="Texture2D" uid="uid://chrykeac1bshk" path="res://assets/exit_button.png" id="2_04f46"]
+
+[node name="Start Menu" type="Node2D"]
+script = ExtResource("1_c0xwn")
+
+[node name="HFlowContainer" type="HFlowContainer" parent="."]
+offset_right = 96.0
+offset_bottom = 84.0
+alignment = 1
+last_wrap_alignment = 1
+
+[node name="Start Button" type="Button" parent="HFlowContainer"]
+layout_mode = 2
+action_mode = 0
+icon = ExtResource("1_ry1of")
+flat = true
+
+[node name="Exit Button" type="Button" parent="HFlowContainer"]
+layout_mode = 2
+action_mode = 0
+icon = ExtResource("2_04f46")
+flat = true
+
+[connection signal="pressed" from="HFlowContainer/Start Button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="HFlowContainer/Exit Button" to="." method="_on_exit_button_pressed"]

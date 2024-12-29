@@ -1,0 +1,296 @@
+[gd_scene load_steps=9 format=3 uid="uid://drfuvfa2alwae"]
+
+[ext_resource type="Script" path="res://scripts/game_board.gd" id="1_0ems2"]
+[ext_resource type="Texture2D" uid="uid://dv08upgwx6q4w" path="res://assets/board_tic_tac_toe.png" id="1_66ut2"]
+[ext_resource type="Texture2D" uid="uid://cmns40mq3sthj" path="res://assets/cross_circle.png" id="2_pxp2t"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2rvpd"]
+texture = ExtResource("1_66ut2")
+separation = Vector2i(10, 0)
+texture_region_size = Vector2i(50, 50)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_k3tok"]
+sources/0 = SubResource("TileSetAtlasSource_2rvpd")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7m8iw"]
+atlas = ExtResource("2_pxp2t")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n55ev"]
+atlas = ExtResource("2_pxp2t")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qjtuh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7m8iw")
+}],
+"loop": true,
+"name": &"circle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n55ev")
+}],
+"loop": true,
+"name": &"cross",
+"speed": 5.0
+}]
+
+[node name="Game Board" type="Node2D"]
+script = ExtResource("1_0ems2")
+
+[node name="Board" type="TileMap" parent="."]
+scale = Vector2(5, 5)
+tile_set = SubResource("TileSet_k3tok")
+format = 2
+layer_0/tile_data = PackedInt32Array(131074, 0, 0)
+
+[node name="b0" type="Button" parent="Board" groups=["circle_or_cross"]]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 15.4
+offset_top = 15.4
+offset_right = 30.4
+offset_bottom = 30.4
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1)
+focus_mode = 0
+flat = true
+icon_alignment = 1
+
+[node name="s0" type="AnimatedSprite2D" parent="Board/b0"]
+visible = false
+position = Vector2(7.6, 7.6)
+sprite_frames = SubResource("SpriteFrames_qjtuh")
+animation = &"circle"
+
+[node name="b1" type="Button" parent="Board" groups=["circle_or_cross"]]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 32.6
+offset_top = 15.4
+offset_right = 47.6
+offset_bottom = 30.4
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1)
+focus_mode = 0
+flat = true
+icon_alignment = 1
+
+[node name="s1" type="AnimatedSprite2D" parent="Board/b1"]
+visible = false
+position = Vector2(7.6, 7.6)
+sprite_frames = SubResource("SpriteFrames_qjtuh")
+animation = &"circle"
+
+[node name="b2" type="Button" parent="Board" groups=["circle_or_cross"]]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 49.6
+offset_top = 15.4
+offset_right = 64.6
+offset_bottom = 30.4
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1)
+focus_mode = 0
+flat = true
+icon_alignment = 1
+
+[node name="s2" type="AnimatedSprite2D" parent="Board/b2"]
+visible = false
+position = Vector2(7.6, 7.6)
+sprite_frames = SubResource("SpriteFrames_qjtuh")
+animation = &"circle"
+
+[node name="b3" type="Button" parent="Board" groups=["circle_or_cross"]]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 15.6
+offset_top = 32.4
+offset_right = 30.6
+offset_bottom = 47.4
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1)
+focus_mode = 0
+flat = true
+icon_alignment = 1
+
+[node name="s3" type="AnimatedSprite2D" parent="Board/b3"]
+visible = false
+position = Vector2(7.6, 7.6)
+sprite_frames = SubResource("SpriteFrames_qjtuh")
+animation = &"circle"
+
+[node name="b4" type="Button" parent="Board" groups=["circle_or_cross"]]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 32.4
+offset_top = 32.4
+offset_right = 47.4
+offset_bottom = 47.4
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1)
+focus_mode = 0
+flat = true
+icon_alignment = 1
+
+[node name="s4" type="AnimatedSprite2D" parent="Board/b4"]
+visible = false
+position = Vector2(7.6, 7.6)
+sprite_frames = SubResource("SpriteFrames_qjtuh")
+animation = &"circle"
+
+[node name="b5" type="Button" parent="Board" groups=["circle_or_cross"]]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 49.6
+offset_top = 32.4
+offset_right = 64.6
+offset_bottom = 47.4
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1)
+focus_mode = 0
+flat = true
+icon_alignment = 1
+
+[node name="s5" type="AnimatedSprite2D" parent="Board/b5"]
+visible = false
+position = Vector2(7.6, 7.6)
+sprite_frames = SubResource("SpriteFrames_qjtuh")
+animation = &"circle"
+
+[node name="b6" type="Button" parent="Board" groups=["circle_or_cross"]]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 15.6
+offset_top = 49.4
+offset_right = 30.6
+offset_bottom = 64.4
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1)
+focus_mode = 0
+flat = true
+icon_alignment = 1
+
+[node name="s6" type="AnimatedSprite2D" parent="Board/b6"]
+visible = false
+position = Vector2(7.6, 7.6)
+sprite_frames = SubResource("SpriteFrames_qjtuh")
+animation = &"circle"
+
+[node name="b7" type="Button" parent="Board" groups=["circle_or_cross"]]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 32.4
+offset_top = 49.4
+offset_right = 47.4
+offset_bottom = 64.4
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1)
+focus_mode = 0
+flat = true
+icon_alignment = 1
+
+[node name="s7" type="AnimatedSprite2D" parent="Board/b7"]
+visible = false
+position = Vector2(7.6, 7.6)
+sprite_frames = SubResource("SpriteFrames_qjtuh")
+animation = &"circle"
+
+[node name="b8" type="Button" parent="Board" groups=["circle_or_cross"]]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 49.6
+offset_top = 49.4
+offset_right = 64.6
+offset_bottom = 64.4
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1)
+focus_mode = 0
+flat = true
+icon_alignment = 1
+
+[node name="s8" type="AnimatedSprite2D" parent="Board/b8"]
+visible = false
+position = Vector2(7.6, 7.6)
+sprite_frames = SubResource("SpriteFrames_qjtuh")
+animation = &"circle"
+
+[connection signal="button_down" from="Board/b0" to="." method="_on_b_0_button_down"]
+[connection signal="button_down" from="Board/b1" to="." method="_on_b_1_button_down"]
+[connection signal="button_down" from="Board/b2" to="." method="_on_b_2_button_down"]
+[connection signal="button_down" from="Board/b3" to="." method="_on_b_3_button_down"]
+[connection signal="button_down" from="Board/b4" to="." method="_on_b_4_button_down"]
+[connection signal="button_down" from="Board/b5" to="." method="_on_b_5_button_down"]
+[connection signal="button_down" from="Board/b6" to="." method="_on_b_6_button_down"]
+[connection signal="button_down" from="Board/b7" to="." method="_on_b_7_button_down"]
+[connection signal="button_down" from="Board/b8" to="." method="_on_b_8_button_down"]
