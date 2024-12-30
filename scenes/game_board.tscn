@@ -50,8 +50,14 @@ script = ExtResource("1_0ems2")
 scale = Vector2(5, 5)
 tile_set = SubResource("TileSet_k3tok")
 format = 2
-layer_0/name = "Layer1"
+layer_0/name = "White"
 layer_0/tile_data = PackedInt32Array(131074, 0, 0)
+layer_1/name = "Green"
+layer_1/enabled = false
+layer_1/tile_data = PackedInt32Array(131074, 65536, 0)
+layer_2/name = "Blue"
+layer_2/enabled = false
+layer_2/tile_data = PackedInt32Array(131074, 131072, 0)
 
 [node name="b0" type="Button" parent="Board" groups=["circle_or_cross"]]
 anchors_preset = 8
@@ -251,6 +257,30 @@ position = Vector2(7.6, 7.6)
 sprite_frames = SubResource("SpriteFrames_qjtuh")
 animation = &"circle"
 
+[node name="Reset" type="Button" parent="."]
+offset_left = 173.0
+offset_top = 366.0
+offset_right = 224.0
+offset_bottom = 393.0
+
+[node name="White Box" type="Button" parent="."]
+offset_left = 409.0
+offset_top = 88.0
+offset_right = 487.0
+offset_bottom = 113.0
+
+[node name="Green Box" type="Button" parent="."]
+offset_left = 409.0
+offset_top = 117.0
+offset_right = 487.0
+offset_bottom = 142.0
+
+[node name="Blue Box" type="Button" parent="."]
+offset_left = 409.0
+offset_top = 146.0
+offset_right = 487.0
+offset_bottom = 171.0
+
 [connection signal="button_down" from="Board/b0" to="." method="_on_b_0_button_down"]
 [connection signal="button_down" from="Board/b1" to="." method="_on_b_1_button_down"]
 [connection signal="button_down" from="Board/b2" to="." method="_on_b_2_button_down"]
@@ -260,3 +290,7 @@ animation = &"circle"
 [connection signal="button_down" from="Board/b6" to="." method="_on_b_6_button_down"]
 [connection signal="button_down" from="Board/b7" to="." method="_on_b_7_button_down"]
 [connection signal="button_down" from="Board/b8" to="." method="_on_b_8_button_down"]
+[connection signal="button_down" from="Reset" to="." method="_on_reset_button_down"]
+[connection signal="button_down" from="White Box" to="." method="_on_white_box_button_down"]
+[connection signal="button_down" from="Green Box" to="." method="_on_green_box_button_down"]
+[connection signal="button_down" from="Blue Box" to="." method="_on_blue_box_button_down"]
