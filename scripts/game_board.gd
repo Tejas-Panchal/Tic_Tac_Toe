@@ -85,8 +85,7 @@ func _on_b_5_button_down() -> void: add_circle_or_cross(s_5,1,2)
 func _on_b_6_button_down() -> void: add_circle_or_cross(s_6,2,0)
 func _on_b_7_button_down() -> void: add_circle_or_cross(s_7,2,1)
 func _on_b_8_button_down() -> void: add_circle_or_cross(s_8,2,2)
-func _on_reset_button_down() -> void: 
-	get_tree().reload_current_scene()
+func _on_reset_button_down() -> void: get_tree().reload_current_scene()
 
 func _on_white_box_button_down() -> void:
 	$Board.set_layer_enabled(0, true)
