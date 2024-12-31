@@ -1,8 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://drfuvfa2alwae"]
+[gd_scene load_steps=13 format=3 uid="uid://drfuvfa2alwae"]
 
 [ext_resource type="Script" path="res://scripts/game_board.gd" id="1_0ems2"]
 [ext_resource type="Texture2D" uid="uid://dv08upgwx6q4w" path="res://assets/board_tic_tac_toe.png" id="1_66ut2"]
+[ext_resource type="Texture2D" uid="uid://c4okfdoyvg071" path="res://assets/game_back_image.png" id="2_1bj52"]
 [ext_resource type="Texture2D" uid="uid://cmns40mq3sthj" path="res://assets/cross_circle.png" id="2_pxp2t"]
+[ext_resource type="Texture2D" uid="uid://d1btgvkwhqj1m" path="res://assets/white_button.png" id="5_pi21x"]
+[ext_resource type="Texture2D" uid="uid://cofd4gcwkatop" path="res://assets/green_button.png" id="6_s8uei"]
+[ext_resource type="Texture2D" uid="uid://dm354e1vx55h7" path="res://assets/blue_button.png" id="7_hoj18"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2rvpd"]
 texture = ExtResource("1_66ut2")
@@ -45,6 +49,11 @@ animations = [{
 
 [node name="Game Board" type="Node2D"]
 script = ExtResource("1_0ems2")
+
+[node name="GameBackImage" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(1.84026, 1.55396)
+texture = ExtResource("2_1bj52")
 
 [node name="Board" type="TileMap" parent="."]
 scale = Vector2(5, 5)
@@ -263,23 +272,29 @@ offset_top = 366.0
 offset_right = 224.0
 offset_bottom = 393.0
 
-[node name="White Box" type="Button" parent="."]
-offset_left = 409.0
-offset_top = 88.0
-offset_right = 487.0
-offset_bottom = 113.0
+[node name="Color Box" type="HFlowContainer" parent="."]
+offset_left = 410.0
+offset_top = 75.0
+offset_right = 505.0
+offset_bottom = 199.0
+scale = Vector2(1.5, 1.5)
+alignment = 1
+last_wrap_alignment = 2
 
-[node name="Green Box" type="Button" parent="."]
-offset_left = 409.0
-offset_top = 117.0
-offset_right = 487.0
-offset_bottom = 142.0
+[node name="White Box" type="Button" parent="Color Box"]
+layout_mode = 2
+icon = ExtResource("5_pi21x")
+flat = true
 
-[node name="Blue Box" type="Button" parent="."]
-offset_left = 409.0
-offset_top = 146.0
-offset_right = 487.0
-offset_bottom = 171.0
+[node name="Green Box" type="Button" parent="Color Box"]
+layout_mode = 2
+icon = ExtResource("6_s8uei")
+flat = true
+
+[node name="Blue Box" type="Button" parent="Color Box"]
+layout_mode = 2
+icon = ExtResource("7_hoj18")
+flat = true
 
 [connection signal="button_down" from="Board/b0" to="." method="_on_b_0_button_down"]
 [connection signal="button_down" from="Board/b1" to="." method="_on_b_1_button_down"]
@@ -291,6 +306,6 @@ offset_bottom = 171.0
 [connection signal="button_down" from="Board/b7" to="." method="_on_b_7_button_down"]
 [connection signal="button_down" from="Board/b8" to="." method="_on_b_8_button_down"]
 [connection signal="button_down" from="Reset" to="." method="_on_reset_button_down"]
-[connection signal="button_down" from="White Box" to="." method="_on_white_box_button_down"]
-[connection signal="button_down" from="Green Box" to="." method="_on_green_box_button_down"]
-[connection signal="button_down" from="Blue Box" to="." method="_on_blue_box_button_down"]
+[connection signal="button_down" from="Color Box/White Box" to="." method="_on_white_box_button_down"]
+[connection signal="button_down" from="Color Box/Green Box" to="." method="_on_green_box_button_down"]
+[connection signal="button_down" from="Color Box/Blue Box" to="." method="_on_blue_box_button_down"]

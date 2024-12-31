@@ -11,9 +11,9 @@ extends Node2D
 @onready var s_8: AnimatedSprite2D = $Board/b8/s8
 
 @onready var reset: Button = $Reset
-@onready var white_box: Button = $"White Box"
-@onready var green_box: Button = $"Green Box"
-@onready var blue_box: Button = $"Blue Box"
+@onready var white_box: Button = $"Color Box/White Box"
+@onready var green_box: Button = $"Color Box/Green Box"
+@onready var blue_box: Button = $"Color Box/Blue Box"
 
 var data : Array = [ [0,0,0],[0,0,0],[0,0,0] ]
 var forCircle = true
@@ -52,6 +52,15 @@ func game_over() -> void:
 		gameActive = false
 	elif cross1 == -3 or cross2 == -3:
 		print("cross winner")
+		gameActive = false
+	
+	var allClicked = 0
+	for i in range(3):
+		for j in range(3):
+			if data[i][j] != 0:
+				allClicked += 1
+	if allClicked == 9:
+		print("tie")
 		gameActive = false
 
 func add_circle_or_cross(box,y,x) -> void:
