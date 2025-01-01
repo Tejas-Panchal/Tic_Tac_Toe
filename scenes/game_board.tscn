@@ -60,13 +60,15 @@ scale = Vector2(5, 5)
 tile_set = SubResource("TileSet_k3tok")
 format = 2
 layer_0/name = "White"
-layer_0/tile_data = PackedInt32Array(131074, 0, 0)
+layer_0/y_sort_enabled = true
+layer_0/navigation_enabled = false
+layer_0/tile_data = PackedInt32Array(131076, 0, 0)
 layer_1/name = "Green"
 layer_1/enabled = false
-layer_1/tile_data = PackedInt32Array(131074, 65536, 0)
+layer_1/tile_data = PackedInt32Array(131076, 65536, 0)
 layer_2/name = "Blue"
 layer_2/enabled = false
-layer_2/tile_data = PackedInt32Array(131074, 131072, 0)
+layer_2/tile_data = PackedInt32Array(131076, 131072, 0)
 
 [node name="b0" type="Button" parent="Board" groups=["circle_or_cross"]]
 anchors_preset = 8
@@ -74,10 +76,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 15.4
-offset_top = 15.4
-offset_right = 30.4
-offset_bottom = 30.4
+offset_left = 47.8
+offset_top = 15.6
+offset_right = 62.8
+offset_bottom = 30.6
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
@@ -96,9 +98,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 32.4
+offset_left = 64.4
 offset_top = 15.6
-offset_right = 47.4
+offset_right = 79.4
 offset_bottom = 30.6
 grow_horizontal = 2
 grow_vertical = 2
@@ -118,10 +120,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 49.6
-offset_top = 15.4
-offset_right = 64.6
-offset_bottom = 30.4
+offset_left = 81.2
+offset_top = 15.8
+offset_right = 96.2
+offset_bottom = 30.8
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
@@ -140,10 +142,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 15.6
-offset_top = 32.4
-offset_right = 30.6
-offset_bottom = 47.4
+offset_left = 48.0
+offset_top = 32.6
+offset_right = 63.0
+offset_bottom = 47.6
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
@@ -162,10 +164,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 32.4
-offset_top = 32.4
-offset_right = 47.4
-offset_bottom = 47.4
+offset_left = 64.4
+offset_top = 32.6
+offset_right = 79.4
+offset_bottom = 47.6
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
@@ -184,10 +186,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 49.6
-offset_top = 32.4
-offset_right = 64.6
-offset_bottom = 47.4
+offset_left = 81.2
+offset_top = 32.6
+offset_right = 96.2
+offset_bottom = 47.6
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
@@ -206,9 +208,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 15.8
+offset_left = 47.8
 offset_top = 49.4
-offset_right = 30.8
+offset_right = 62.8
 offset_bottom = 64.4
 grow_horizontal = 2
 grow_vertical = 2
@@ -228,9 +230,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 32.4
+offset_left = 64.4
 offset_top = 49.4
-offset_right = 47.4
+offset_right = 79.4
 offset_bottom = 64.4
 grow_horizontal = 2
 grow_vertical = 2
@@ -250,9 +252,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 49.6
+offset_left = 81.2
 offset_top = 49.4
-offset_right = 64.6
+offset_right = 96.2
 offset_bottom = 64.4
 grow_horizontal = 2
 grow_vertical = 2
@@ -267,32 +269,41 @@ sprite_frames = SubResource("SpriteFrames_qjtuh")
 animation = &"circle"
 
 [node name="Reset" type="Button" parent="."]
-offset_left = 173.0
-offset_top = 366.0
-offset_right = 224.0
-offset_bottom = 393.0
+offset_left = 334.0
+offset_top = 380.0
+offset_right = 385.0
+offset_bottom = 407.0
+
+[node name="Quit" type="Button" parent="."]
+offset_left = 334.0
+offset_top = 431.0
+offset_right = 385.0
+offset_bottom = 458.0
 
 [node name="Color Box" type="HFlowContainer" parent="."]
-offset_left = 410.0
-offset_top = 75.0
-offset_right = 505.0
-offset_bottom = 199.0
+offset_left = 1008.0
+offset_top = 15.0
+offset_right = 1103.0
+offset_bottom = 139.0
 scale = Vector2(1.5, 1.5)
 alignment = 1
 last_wrap_alignment = 2
 
 [node name="White Box" type="Button" parent="Color Box"]
 layout_mode = 2
+focus_mode = 0
 icon = ExtResource("5_pi21x")
 flat = true
 
 [node name="Green Box" type="Button" parent="Color Box"]
 layout_mode = 2
+focus_mode = 0
 icon = ExtResource("6_s8uei")
 flat = true
 
 [node name="Blue Box" type="Button" parent="Color Box"]
 layout_mode = 2
+focus_mode = 0
 icon = ExtResource("7_hoj18")
 flat = true
 
@@ -306,6 +317,7 @@ flat = true
 [connection signal="button_down" from="Board/b7" to="." method="_on_b_7_button_down"]
 [connection signal="button_down" from="Board/b8" to="." method="_on_b_8_button_down"]
 [connection signal="button_down" from="Reset" to="." method="_on_reset_button_down"]
+[connection signal="button_down" from="Quit" to="." method="_on_quit_button_down"]
 [connection signal="button_down" from="Color Box/White Box" to="." method="_on_white_box_button_down"]
 [connection signal="button_down" from="Color Box/Green Box" to="." method="_on_green_box_button_down"]
 [connection signal="button_down" from="Color Box/Blue Box" to="." method="_on_blue_box_button_down"]

@@ -8,8 +8,17 @@
 script = ExtResource("1_c0xwn")
 
 [node name="HFlowContainer" type="HFlowContainer" parent="."]
-offset_right = 96.0
-offset_bottom = 84.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 528.0
+offset_top = 282.0
+offset_right = 624.0
+offset_bottom = 366.0
+grow_horizontal = 2
+grow_vertical = 2
 alignment = 1
 last_wrap_alignment = 1
 

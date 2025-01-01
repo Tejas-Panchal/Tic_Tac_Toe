@@ -21,10 +21,18 @@ var gameActive = true
 
 func _ready() -> void:
 	reset.visible = false
-	$Board.set_layer_enabled(0, true)
-	white_box.visible = false
-	$Board.set_layer_enabled(1, false)
-	$Board.set_layer_enabled(2, false)
+
+#func click_reset() -> void:
+	#s_0.visible = false
+	#s_1.visible = false
+	#s_2.visible = false
+	#s_3.visible = false
+	#s_4.visible = false
+	#s_5.visible = false
+	#s_6.visible = false
+	#s_7.visible = false
+	#s_8.visible = false
+	#gameActive = true
 
 func _process(_delta: float) -> void:
 	if gameActive == false:
@@ -86,27 +94,28 @@ func _on_b_6_button_down() -> void: add_circle_or_cross(s_6,2,0)
 func _on_b_7_button_down() -> void: add_circle_or_cross(s_7,2,1)
 func _on_b_8_button_down() -> void: add_circle_or_cross(s_8,2,2)
 func _on_reset_button_down() -> void: get_tree().reload_current_scene()
+func _on_quit_button_down() -> void: get_tree().quit()
 
 func _on_white_box_button_down() -> void:
 	$Board.set_layer_enabled(0, true)
 	$Board.set_layer_enabled(1, false)
 	$Board.set_layer_enabled(2, false)
-	white_box.visible = false
-	green_box.visible = true
-	blue_box.visible = true
+	white_box.icon = load("res://assets/white_button.png")
+	green_box.icon = load("res://assets/green_button.png")
+	blue_box.icon = load("res://assets/blue_button.png")
 
 func _on_green_box_button_down() -> void:
 	$Board.set_layer_enabled(0, false)
 	$Board.set_layer_enabled(1, true)
 	$Board.set_layer_enabled(2, false)
-	white_box.visible = true
-	green_box.visible = false
-	blue_box.visible = true
+	white_box.icon = load("res://assets/white_button.png")
+	green_box.icon = load("res://assets/green_button.png")
+	blue_box.icon = load("res://assets/blue_button.png")
 
 func _on_blue_box_button_down() -> void:
 	$Board.set_layer_enabled(0, false)
 	$Board.set_layer_enabled(1, false)
 	$Board.set_layer_enabled(2, true)
-	white_box.visible = true
-	green_box.visible = true
-	blue_box.visible = false
+	white_box.icon = load("res://assets/white_button.png")
+	green_box.icon = load("res://assets/green_button.png")
+	blue_box.icon = load("res://assets/blue_button.png")
