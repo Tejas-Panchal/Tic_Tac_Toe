@@ -1,12 +1,16 @@
-[gd_scene load_steps=13 format=3 uid="uid://drfuvfa2alwae"]
+[gd_scene load_steps=17 format=3 uid="uid://drfuvfa2alwae"]
 
 [ext_resource type="Script" path="res://scripts/game_board.gd" id="1_0ems2"]
 [ext_resource type="Texture2D" uid="uid://dv08upgwx6q4w" path="res://assets/board_tic_tac_toe.png" id="1_66ut2"]
-[ext_resource type="Texture2D" uid="uid://c4okfdoyvg071" path="res://assets/game_back_image.png" id="2_1bj52"]
+[ext_resource type="Texture2D" uid="uid://dx2cxrlis1hni" path="res://assets/back_image2.png" id="2_lyjl8"]
 [ext_resource type="Texture2D" uid="uid://cmns40mq3sthj" path="res://assets/cross_circle.png" id="2_pxp2t"]
+[ext_resource type="Texture2D" uid="uid://ljmliq0006o7" path="res://assets/restart_button.png" id="5_58ngg"]
 [ext_resource type="Texture2D" uid="uid://d1btgvkwhqj1m" path="res://assets/white_button.png" id="5_pi21x"]
+[ext_resource type="Texture2D" uid="uid://ru7buxg7p0ja" path="res://assets/quit_button.png" id="6_dl8oc"]
 [ext_resource type="Texture2D" uid="uid://cofd4gcwkatop" path="res://assets/green_button.png" id="6_s8uei"]
 [ext_resource type="Texture2D" uid="uid://dm354e1vx55h7" path="res://assets/blue_button.png" id="7_hoj18"]
+[ext_resource type="Texture2D" uid="uid://cd6he6xybdaty" path="res://assets/winner.png" id="10_f8rsp"]
+[ext_resource type="Texture2D" uid="uid://fu3tkdgtppcg" path="res://assets/winner_button.png" id="11_bhuuh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2rvpd"]
 texture = ExtResource("1_66ut2")
@@ -45,18 +49,24 @@ animations = [{
 "loop": true,
 "name": &"cross",
 "speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
 }]
 
 [node name="Game Board" type="Node2D"]
 script = ExtResource("1_0ems2")
 
-[node name="GameBackImage" type="Sprite2D" parent="."]
+[node name="BackImage2" type="Sprite2D" parent="."]
 position = Vector2(576, 324)
-scale = Vector2(1.84026, 1.55396)
-texture = ExtResource("2_1bj52")
+scale = Vector2(12.5217, 12)
+texture = ExtResource("2_lyjl8")
 
 [node name="Board" type="TileMap" parent="."]
-scale = Vector2(5, 5)
+position = Vector2(-180, 5)
+scale = Vector2(6, 6)
 tile_set = SubResource("TileSet_k3tok")
 format = 2
 layer_0/name = "White"
@@ -269,22 +279,26 @@ sprite_frames = SubResource("SpriteFrames_qjtuh")
 animation = &"circle"
 
 [node name="Reset" type="Button" parent="."]
-offset_left = 334.0
-offset_top = 380.0
-offset_right = 385.0
-offset_bottom = 407.0
+offset_left = 182.0
+offset_top = 463.0
+offset_right = 308.0
+offset_bottom = 501.0
+icon = ExtResource("5_58ngg")
+flat = true
 
 [node name="Quit" type="Button" parent="."]
-offset_left = 334.0
-offset_top = 431.0
-offset_right = 385.0
-offset_bottom = 458.0
+offset_left = 981.0
+offset_top = 520.0
+offset_right = 1059.0
+offset_bottom = 558.0
+icon = ExtResource("6_dl8oc")
+flat = true
 
 [node name="Color Box" type="HFlowContainer" parent="."]
-offset_left = 1008.0
-offset_top = 15.0
-offset_right = 1103.0
-offset_bottom = 139.0
+offset_left = 482.0
+offset_top = 120.0
+offset_right = 577.0
+offset_bottom = 244.0
 scale = Vector2(1.5, 1.5)
 alignment = 1
 last_wrap_alignment = 2
@@ -306,6 +320,22 @@ layout_mode = 2
 focus_mode = 0
 icon = ExtResource("7_hoj18")
 flat = true
+
+[node name="Winner" type="Sprite2D" parent="."]
+position = Vector2(847.563, 205.25)
+scale = Vector2(12.8295, 13.55)
+texture = ExtResource("10_f8rsp")
+
+[node name="winner_icon" type="AnimatedSprite2D" parent="Winner"]
+position = Vector2(-2.38419e-06, -4.76837e-07)
+scale = Vector2(0.554326, 0.514228)
+sprite_frames = SubResource("SpriteFrames_qjtuh")
+animation = &"new_animation"
+
+[node name="w_1" type="Sprite2D" parent="Winner"]
+position = Vector2(-0.194232, 8.61623)
+scale = Vector2(0.135401, 0.123306)
+texture = ExtResource("11_bhuuh")
 
 [connection signal="button_down" from="Board/b0" to="." method="_on_b_0_button_down"]
 [connection signal="button_down" from="Board/b1" to="." method="_on_b_1_button_down"]

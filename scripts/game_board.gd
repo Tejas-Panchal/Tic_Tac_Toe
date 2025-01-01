@@ -9,6 +9,9 @@ extends Node2D
 @onready var s_6: AnimatedSprite2D = $Board/b6/s6
 @onready var s_7: AnimatedSprite2D = $Board/b7/s7
 @onready var s_8: AnimatedSprite2D = $Board/b8/s8
+@onready var w_icon : AnimatedSprite2D = $Winner/winner_icon
+@onready var w_1 : Sprite2D = $Winner/w_1
+
 
 @onready var reset: Button = $Reset
 @onready var white_box: Button = $"Color Box/White Box"
@@ -21,6 +24,7 @@ var gameActive = true
 
 func _ready() -> void:
 	reset.visible = false
+	w_1.visible = false
 
 #func click_reset() -> void:
 	#s_0.visible = false
@@ -37,6 +41,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if gameActive == false:
 		reset.visible = true
+		w_1.visible = true
 
 func game_over() -> void:
 	for i in range(3):
@@ -46,10 +51,12 @@ func game_over() -> void:
 		if row_sum == 3 or collum_sum == 3:
 			print("circle winner")
 			gameActive = false
+			w_icon.play("circle")
 			return
 		elif row_sum == -3 or collum_sum == -3:
 			print("cross winner")
 			gameActive = false
+			w_icon.play("cross")
 			return
 	
 	var cross1 = data[0][0] + data[1][1] + data[2][2]
@@ -58,9 +65,11 @@ func game_over() -> void:
 	if cross1 == 3 or cross2 == 3:
 		print("circle winner")
 		gameActive = false
+		w_icon.play("circle")
 	elif cross1 == -3 or cross2 == -3:
 		print("cross winner")
 		gameActive = false
+		w_icon.play("cross")
 	
 	var allClicked = 0
 	for i in range(3):
