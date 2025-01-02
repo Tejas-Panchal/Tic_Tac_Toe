@@ -60,7 +60,6 @@ func load_data():
 func _process(_delta: float) -> void:
 	if gameActive == false:
 		winner.visible = true
-		reset.visible = true
 		w_1.visible = true
 
 func game_over() -> void:
@@ -98,6 +97,7 @@ func game_over() -> void:
 		for j in range(3):
 			if data[i][j] != 0:
 				allClicked += 1
+	if allClicked > 0: reset.visible = true
 	if allClicked == 9:
 		if gameActive == true:
 			print("tie")

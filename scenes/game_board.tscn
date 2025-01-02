@@ -324,9 +324,8 @@ icon = ExtResource("7_hoj18")
 flat = true
 
 [node name="Winner" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(368, 325)
-scale = Vector2(40.9091, 45)
+position = Vector2(731, 326)
+scale = Vector2(18.909, 20.8)
 texture = ExtResource("10_f8rsp")
 
 [node name="winner_icon" type="AnimatedSprite2D" parent="Winner"]
@@ -337,7 +336,7 @@ animation = &"new_animation"
 
 [node name="w_1" type="Sprite2D" parent="Winner"]
 position = Vector2(-4.76837e-07, -0.0222223)
-scale = Vector2(0.05, 0.05)
+scale = Vector2(0.07, 0.07)
 texture = ExtResource("11_bhuuh")
 
 [connection signal="button_down" from="Board/b0" to="." method="_on_b_0_button_down"]
