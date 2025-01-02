@@ -12,7 +12,6 @@ extends Node2D
 @onready var w_icon : AnimatedSprite2D = $Winner/winner_icon
 @onready var w_1 : Sprite2D = $Winner/w_1
 
-
 @onready var reset: Button = $Reset
 @onready var white_box: Button = $"Color Box/White Box"
 @onready var green_box: Button = $"Color Box/Green Box"
@@ -25,18 +24,36 @@ var gameActive = true
 func _ready() -> void:
 	reset.visible = false
 	w_1.visible = false
+	var box_color = load_data()
+	if box_color == 1:
+		$Board.set_layer_enabled(0, false)
+		$Board.set_layer_enabled(1, true)
+		$Board.set_layer_enabled(2, false)
+	elif box_color == 2:
+		$Board.set_layer_enabled(0, false)
+		$Board.set_layer_enabled(1, false)
+		$Board.set_layer_enabled(2, true)
+	else:
+		$Board.set_layer_enabled(0, true)
+		$Board.set_layer_enabled(1, false)
+		$Board.set_layer_enabled(2, false)
 
-#func click_reset() -> void:
-	#s_0.visible = false
-	#s_1.visible = false
-	#s_2.visible = false
-	#s_3.visible = false
-	#s_4.visible = false
-	#s_5.visible = false
-	#s_6.visible = false
-	#s_7.visible = false
-	#s_8.visible = false
-	#gameActive = true
+func save_data(box_color):
+	var file = FileAccess.open("user://save_data.dat", FileAccess.WRITE)
+	if file:
+		file.store_8(box_color)
+		print("Saved box_color:", box_color)
+		file.close()
+
+func load_data():
+	if FileAccess.file_exists("user://save_data.dat"):
+		var file = FileAccess.open("user://save_data.dat", FileAccess.READ)
+		if file:
+			var box_color = file.get_8()
+			file.close()
+			print("Loaded box_color:", box_color)
+			return box_color
+	return 0
 
 func _process(_delta: float) -> void:
 	if gameActive == false:
@@ -102,8 +119,21 @@ func _on_b_5_button_down() -> void: add_circle_or_cross(s_5,1,2)
 func _on_b_6_button_down() -> void: add_circle_or_cross(s_6,2,0)
 func _on_b_7_button_down() -> void: add_circle_or_cross(s_7,2,1)
 func _on_b_8_button_down() -> void: add_circle_or_cross(s_8,2,2)
-func _on_reset_button_down() -> void: get_tree().reload_current_scene()
 func _on_quit_button_down() -> void: get_tree().quit()
+
+func _on_reset_button_down() -> void:
+	var box_color = -1
+	if $Board.is_layer_enabled(0):
+		box_color = 0
+	elif $Board.is_layer_enabled(1):
+		box_color = 1
+	elif $Board.is_layer_enabled(2):
+		box_color = 2
+	if box_color != -1:
+		save_data(box_color)
+	else:
+		print("Error: No active layer detected.")
+	get_tree().reload_current_scene()
 
 func _on_white_box_button_down() -> void:
 	$Board.set_layer_enabled(0, true)

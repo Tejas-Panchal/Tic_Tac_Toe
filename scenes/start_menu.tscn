@@ -14,19 +14,13 @@ scale = Vector2(5.52679, 5.78571)
 texture = ExtResource("2_5nxvo")
 
 [node name="HFlowContainer" type="HFlowContainer" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 515.0
+offset_left = 528.0
 offset_top = 282.0
-offset_right = 642.0
-offset_bottom = 390.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 624.0
+offset_bottom = 366.0
+scale = Vector2(1.5, 1.5)
 alignment = 1
-last_wrap_alignment = 1
+last_wrap_alignment = 2
 
 [node name="Start Button" type="Button" parent="HFlowContainer"]
 layout_mode = 2
