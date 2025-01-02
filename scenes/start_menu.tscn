@@ -3,15 +3,10 @@
 [ext_resource type="Script" path="res://scripts/start_menu.gd" id="1_c0xwn"]
 [ext_resource type="Texture2D" uid="uid://dwpcjjpq0l1p" path="res://assets/start_button.png" id="1_ry1of"]
 [ext_resource type="Texture2D" uid="uid://chrykeac1bshk" path="res://assets/exit_button.png" id="2_04f46"]
-[ext_resource type="Texture2D" uid="uid://bht4vwcx3q54y" path="res://assets/back_image.png" id="2_5nxvo"]
+[ext_resource type="PackedScene" uid="uid://dk6r602gpflr5" path="res://bg.tscn" id="4_uvlhk"]
 
 [node name="Start Menu" type="Node2D"]
 script = ExtResource("1_c0xwn")
-
-[node name="BackImage" type="Sprite2D" parent="."]
-position = Vector2(619, 324)
-scale = Vector2(5.52679, 5.78571)
-texture = ExtResource("2_5nxvo")
 
 [node name="HFlowContainer" type="HFlowContainer" parent="."]
 offset_left = 479.0
@@ -33,6 +28,8 @@ layout_mode = 2
 action_mode = 0
 icon = ExtResource("2_04f46")
 flat = true
+
+[node name="BG" parent="." instance=ExtResource("4_uvlhk")]
 
 [connection signal="pressed" from="HFlowContainer/Start Button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="HFlowContainer/Exit Button" to="." method="_on_exit_button_pressed"]
