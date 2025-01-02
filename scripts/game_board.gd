@@ -9,6 +9,7 @@ extends Node2D
 @onready var s_6: AnimatedSprite2D = $Board/b6/s6
 @onready var s_7: AnimatedSprite2D = $Board/b7/s7
 @onready var s_8: AnimatedSprite2D = $Board/b8/s8
+@onready var winner: Sprite2D = $Winner
 @onready var w_icon : AnimatedSprite2D = $Winner/winner_icon
 @onready var w_1 : Sprite2D = $Winner/w_1
 
@@ -24,6 +25,7 @@ var gameActive = true
 func _ready() -> void:
 	reset.visible = false
 	w_1.visible = false
+	winner.visible = false
 	var box_color = load_data()
 	if box_color == 1:
 		$Board.set_layer_enabled(0, false)
@@ -57,6 +59,7 @@ func load_data():
 
 func _process(_delta: float) -> void:
 	if gameActive == false:
+		winner.visible = true
 		reset.visible = true
 		w_1.visible = true
 
@@ -83,10 +86,12 @@ func game_over() -> void:
 		print("circle winner")
 		gameActive = false
 		w_icon.play("circle")
+		w_1.texture = load("res://assets/winner_button.png")
 	elif cross1 == -3 or cross2 == -3:
 		print("cross winner")
 		gameActive = false
 		w_icon.play("cross")
+		w_1.texture = load("res://assets/winner_button.png")
 	
 	var allClicked = 0
 	for i in range(3):
@@ -94,7 +99,9 @@ func game_over() -> void:
 			if data[i][j] != 0:
 				allClicked += 1
 	if allClicked == 9:
-		print("tie")
+		if gameActive == true:
+			print("tie")
+			w_1.texture = load("res://assets/tie_button.png")
 		gameActive = false
 
 func add_circle_or_cross(box,y,x) -> void:

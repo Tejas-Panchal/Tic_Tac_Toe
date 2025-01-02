@@ -14,11 +14,11 @@ scale = Vector2(5.52679, 5.78571)
 texture = ExtResource("2_5nxvo")
 
 [node name="HFlowContainer" type="HFlowContainer" parent="."]
-offset_left = 528.0
-offset_top = 282.0
-offset_right = 624.0
-offset_bottom = 366.0
-scale = Vector2(1.5, 1.5)
+offset_left = 479.0
+offset_top = 243.0
+offset_right = 575.0
+offset_bottom = 327.0
+scale = Vector2(2, 2)
 alignment = 1
 last_wrap_alignment = 2
 
